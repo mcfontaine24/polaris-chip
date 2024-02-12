@@ -7,6 +7,7 @@
   <meta name="Description" content="Boilerplate for polaris chip">
   <base href="/">
 
+  
   <style>
     :root,
     html,
@@ -19,26 +20,31 @@
     polaris-chip {
       margin: 16px;
     }
+
+    h3 {
+      margin: 16px;
+      padding: 8px;
+    }
+
   </style>
   <title>polaris-chip / my-card</title>
 </head>
 
 <body>
   <h1>polaris-chip</h1>
-  <!-- this is going to do whatever the tag's defaults are -->
-  <polaris-chip title = "News of Record" link="https://www.psu.edu/"></polaris-chip>
-  <polaris-chip title = "Faculty and Staff" ></polaris-chip>
-  <polaris-chip title = "Sports are cool"> </polaris-chip>
-  <polaris-chip title = "Grants and Donations"></polaris-chip>
+  <polaris-chip title="News of Record" link="https://www.psu.edu/"></polaris-chip>
+  <polaris-chip title="Faculty and Staff"></polaris-chip>
+  <polaris-chip title="Sports are cool"></polaris-chip>
+  <polaris-chip title="Grants and Donations"></polaris-chip>
   
-  <!-- this is going to take the tag and change the title -->
   <polaris-chip></polaris-chip>
 
+  <h1>My Cards</h1>
+  <my-card fancy></my-card>
 
-<body>
   <div id="cardlist">
     <div class="card">
-      <img src="https://3.bp.blogspot.com/-KPteJqDtDbM/WhWepPjD4NI/AAAAAAAAPHg/XQmT_gQfFHk0NRHUq5GDmjiJUEO7yi5JwCLcBGAs/s640/create-a-website.png" alt="Card Image">
+      <img src="https://a-z-animals.com/media/2023/08/shutterstock-2277862555-huge-licensed-scaled.jpg" alt="Card Image">
       <div class="card-content">
         <div class="control-wrapper">
           <my-card title="Duplicate Card"></my-card>
@@ -47,144 +53,208 @@
           <my-card title="Change Background Color"></my-card>
           <my-card title="Remove Last Card"></my-card>
         </div>
-        <h2>Create websites using HAX at Penn State</h2>
+        <h2>Create websites using HAX</h2>
         <h3>What is HAX?</h3>
-        <p>A radically simple approach to web authoring and content ownership.</p>
-        <ul>
-          <li>The HAX block system allows for sustainable content creation that is easy to click and build for novices while outputting clean, semantic HTML for experts.</li>
-        </ul>
-        <h4>Where can I access it?</h4>
-        <ul>
-          <li>HAX is a service provided through a collaboration between Penn State. For more info click on details! </li>
-        </ul>
+        <!-- put this in your render method where you had details -->
+        <details id="details" ?open="${this.fancy}" @toggle="${openChanged}">
+          <summary>Description</summary>
+          <div>
+            <slot>Here is the explanation</slot>
+            <ul>
+              <li>The <strong>HAX</strong> block system allows for sustainable content creation that is easy to click and build for novices while outputting clean, semantic HTML for experts.</li>
+            </ul>
+          </div>
+        </details>
+        <a href="https://hax.psu.edu" class="btn">Details</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://www.psu.edu/psu-edu-assets/images/image-gallery/Brandywine_LP_Tomezsko_Classroom_Building.jpg" alt="Second Card Image">
+      <div class="card-content">
+        <my-card title="Duplicate Card"></my-card>
+        <my-card title="Change Title"></my-card>
+        <my-card title="Change Image"></my-card>
+        <my-card title="Change Background Color"></my-card>
+        <my-card title="Remove Last Card"></my-card>
+        <h2>Penn State Brandywine</h2>
+        <h3>Where is it located?</h3>
+        <!-- put this in your render method where you had details -->
+        <details id="details" ?open="${this.fancy}" @toggle="${openChanged}">
+          <summary>Description</summary>
+          <div>
+            <slot>Location</slot>
+            <ul>
+              <li>Commonwealth campus located near <strong>Philadelphia</strong> </li>
+            </ul>
+          </div>
+        </details>
+        <a href="https://hax.psu.edu" class="btn">Details</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://altoona.psu.edu/sites/altoona/files/styles/node_embed/public/altoona2014-67_4.jpg?itok=CiNJnPDF" alt="Third Card Image">
+      <div class="card-content">
+        <my-card title="Duplicate Card"></my-card>
+        <my-card title="Change Title"></my-card>
+        <my-card title="Change Image"></my-card>
+        <my-card title="Change Background Color"></my-card>
+        <my-card title="Remove Last Card"></my-card>
+        <h2>Penn State Altoona</h2>
+        <h3>Where is it located?</h3>
+        <!-- put this in your render method where you had details -->
+        <details id="details" ?open="${this.fancy}" @toggle="${openChanged}">
+          <summary>Description</summary>
+          <div>
+            <slot>Location</slot>
+            <ul>
+              <li>Commonwealth campus located near <strong>Pittsburg</strong> </li>
+            </ul>
+          </div>
+        </details>
         <a href="https://hax.psu.edu" class="btn">Details</a>
       </div>
     </div>
   </div>
 
-  
-
   <style>
     :root,
-  html,
-  body {
-    font-size: 16px;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  h1 {
-    font-size: 2em;
-    margin: 0;
-    padding: 0;
-  }
-  
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin: 8px 0;
-  }
-  
-  a {
-    text-decoration: none;
-  }
-  
-  .card {
-    background-color: #ecf0f1;
-    color: black;
-    max-width: 400px;
-    margin: 8px;
-    border: 10px solid #de3163;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: 0.6s all ease-in-out;
-  }
-  
-  .card img {
-    width: 100%;
-    height: auto;
-  }
-  
-  .card-content {
-    padding: 16px;
-  }
-  
-  .btn{
-    background-color: #3498DB;
-    color: white;
-    font-size: 20px;
-    text-decoration: none;
-    padding: 12px;
-    border-radius: 8px;
-  }
-  
-  .btn:focus,
-  .btn:hover {
-    background-color: #DE3163 ;
-  }
-  
-  .links li a:focus,
-  .links li:hover a,
-  .card li a:focus,
-  .card li:hover a {
-    color: green;
-    text-decoration: underline;
-    cursor: move;
-    outline: none;
-  }
-  
-  ul li:hover {
-    list-style: "👽";
-    font-weight: bold;
-    cursor: grab;
-  }
-  
-  ul li:nth-child(odd) {
-    background-color: #eeeeee;
-  }
-  
-  ul li:nth-child(even) {
-    background-color: #dddddd;
-  }
-  
-  .card:hover,
-  .card:focus-within {
-    opacity: 1;
-    outline: 2px solid purple;
-    outline-offset: 16px;
-  }
-  
-  .change-bg-color {
-    background-color: #f58ec5; 
-    color: black; 
-  }
-  
-  .original-color {
-    background-color: white !important; 
-    color: black; 
-  }
-  
-  @media (max-width: 800px) and (min-width: 501px) {
-    .details-button {
-      display: inline-block;
+    html,
+    body {
+      font-size: 16px;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      box-sizing: border-box;
     }
-  }
-  
-  @media (max-width: 500px) {
+
+    h1 {
+      font-size: 2em;
+      margin: 0;
+      padding: 0;
+    }
+
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 8px 0;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    #cardlist {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
     .card {
-      max-width: 100%;
+      flex: 0 0 30%;
+      max-width: 30%;
+      box-sizing: border-box;
+      background-color: #ecf0f1;
+      color: black;
+      border: 10px solid #de3163;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: 0.6s all ease-in-out;
+      margin: 0 15px 20px 15px;
     }
-    .details-button {
+
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+
+    .card-content {
+      padding: 16px;
+    }
+
+    .btn {
+      background-color: #3498DB;
+      color: white;
+      font-size: 14px;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 8px;
       display: inline-block;
+      width: max-content;
+      margin-top: 10px;
+      /
     }
-  }
-  
-  
+
+    .btn:focus,
+    .btn:hover {
+      background-color: #DE3163;
+    }
+
+    ul li:hover {
+      list-style: "👽";
+      font-weight: bold;
+      cursor: grab;
+    }
+
+    ul li:nth-child(odd) {
+      background-color: #eeeeee;
+    }
+
+    ul li:nth-child(even) {
+      background-color: #dddddd;
+    }
+
+    .card:hover,
+    .card:focus-within {
+      opacity: 1;
+      outline: 2px solid purple;
+      outline-offset: 16px;
+    }
+
+    .change-bg-color {
+      background-color: #f58ec5;
+      color: black;
+    }
+
+    .original-color {
+      background-color: white !important;
+      color: black;
+    }
+
+    :host([fancy]) {
+      display: block;
+      background-color: pink;
+      border: 2px solid fuchsia;
+      box-shadow: 10px 5px 5px red;
+    }
+
+    @media (max-width: 800px) and (min-width: 501px) {
+      .details-button {
+        display: inline-block;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .card {
+        max-width: 100%;
+      }
+
+      .details-button {
+        display: inline-block;
+      }
+    }
   </style>
-  <!-- this is what is bringing in the definition for this tag -->
+
   <script type="module" src="./src/polaris-chip.js"></script>
   <script type="module" src="./src/my-card.js"></script>
+  <script>
+    function openChanged(e) {
+      const details = document.getElementById('details');
+      const fancy = details.open;
+      const cards = document.querySelectorAll('my-card');
+      cards.forEach(card => card.setAttribute('fancy', fancy));
+    }
+  </script>
 </body>
-
 </html>
