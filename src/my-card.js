@@ -59,17 +59,6 @@ export class MyCard extends LitElement {
     }
   }
 
-
-
-  render() {
-    return html`
-      <a href="${this.link}">
-        <span @click="${this.handleClick}">${this.title}</span>
-      </a>
-    `;
-  }
-
-
   render() {
     return html`
       <a href="${this.link}">
