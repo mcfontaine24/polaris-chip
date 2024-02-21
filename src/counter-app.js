@@ -94,12 +94,15 @@ class CounterApp extends LitElement {
 
   render() {
     return html`
+    
       <div>${this.counter}</div>
       <div class="buttons-container">
+      <confetti-container id="confetti">
         <button @click="${this.increment}" ?disabled="${this.counter === this.max}">+</button>
         <button @click="${this.decrement}" ?disabled="${this.counter === this.min}">-</button>
+        </confetti-container>
       </div>
-      <confetti-container id="confetti"></confetti-container>
+      
     `;
   }
 }
