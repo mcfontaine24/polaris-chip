@@ -2,6 +2,35 @@
 <html lang="en">
 
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Page Banner</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+  <div class="banner">
+    <div class="banner__content">
+      <div class="banner__text">
+        <strong>Alert:</strong> Spring Break is next week! No classes for a week!
+      </div>
+      <button class="banner__close" type="button">
+        <span class="material-icons">close</span>
+      </button>
+    </div>
+  </div>
+
+  <script type="module" src="src/campus-alert.js"></script>
+  <script>
+    document.querySelector(".banner__close").addEventListener("click", function () {
+      document.querySelector(".banner").style.display = "none";
+    });
+  </script>
+</body>
+</html>
+
+  
+<head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="Description" content="Boilerplate for polaris chip">
