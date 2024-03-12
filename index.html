@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -7,36 +7,7 @@
   <title>Web Page Banner</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
-</head>
-<body>
-  <div class="banner">
-    <div class="banner__content">
-      <div class="banner__text">
-        <strong>Alert:</strong> Spring Break is next week! No classes for a week!
-      </div>
-      <button class="banner__close" type="button">
-        <span class="material-icons">close</span>
-      </button>
-    </div>
-  </div>
 
-  <script type="module" src="src/campus-alert.js"></script>
-  <script>
-    document.querySelector(".banner__close").addEventListener("click", function () {
-      document.querySelector(".banner").style.display = "none";
-    });
-  </script>
-</body>
-</html>
-
-  
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="Description" content="Boilerplate for polaris chip">
-  <base href="/">
-
-  
   <style>
     :root,
     html,
@@ -56,10 +27,16 @@
     }
 
   </style>
-  <title>polaris-chip / my-card</title>
 </head>
 
 <body>
+
+   <alert-message></alert-message>
+    <alert-message status="notice" date="2024-02-24" message="Notice: Due to severe weather buses will take a different route." sticky></alert-message>
+    <alert-message status="warning" date="2024-03-24" message="Warning: High chance of snowstorm."></alert-message>
+    <alert-message status="alert" date="2024-04-24" message="Alert: Heavy snow storm incoming. Campus closed."></alert-message>
+    <alert-message></alert-message>
+  
   <h1>polaris-chip</h1>
   <polaris-chip title="News of Record" link="https://www.psu.edu/"></polaris-chip>
   <polaris-chip title="Faculty and Staff"></polaris-chip>
