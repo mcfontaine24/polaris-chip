@@ -621,3 +621,5 @@ export class PartyUI extends DDD {
 }
 
 globalThis.customElements.define(PartyUI.tag, PartyUI);
+
+
